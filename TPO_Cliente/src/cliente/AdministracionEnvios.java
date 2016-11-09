@@ -105,6 +105,7 @@ public class AdministracionEnvios {
 			
 			//Se llama al servicio RMI que crea la facturación para el envio
 			new AdministracionFacturacion(envio);
+			new AdministracionFacturacion(cliente); //NUEVO
 			
 		}catch(RemoteException | ClienteException | CargaException e){
 			e.printStackTrace();

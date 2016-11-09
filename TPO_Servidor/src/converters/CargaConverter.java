@@ -96,4 +96,23 @@ public class CargaConverter implements Serializable{
 		return lista;			
 	}
 	
+	public static Carga cargaToEntity(CargaDTO cargaDTO){
+		Carga carga = new Carga(cargaDTO.getAlto(), cargaDTO.getAncho(), cargaDTO.isApilable(),
+								  null/*CategoriaFragilidadConverter.categoriaFragilidadToDTO(carga.getCategFragilidad())*/,
+								  null/*CategoriaTratamientoConverter.categoriaTratamientoToDTO(carga.getCategTratamiento())*/,
+								  cargaDTO.isEsInflamable(),
+								  cargaDTO.isEsQuimicoToxico(),
+								  ManifiestoConverter.manifiestoToEntity(cargaDTO.getManifiesto()),
+								  cargaDTO.getMaximoApilable(),
+								  cargaDTO.getNotasManipulacion(),
+								  cargaDTO.getPeso(),
+								  cargaDTO.getProfundidad(),
+								  cargaDTO.isRefrigerado(),
+								  cargaDTO.getTempRefrigerado(),
+								  cargaDTO.getTipo(),
+								  cargaDTO.getVolumen());
+		carga.setId(cargaDTO.getId());
+		return carga;			
+	}
+
 }

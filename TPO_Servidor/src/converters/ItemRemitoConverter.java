@@ -27,4 +27,18 @@ public class ItemRemitoConverter implements Serializable{
 		return itemsRemitoDTO;
 	}
 
+	public static ItemRemito itemRemitoToEntity(ItemRemitoDTO itemRemitoDTO){
+		ItemRemito itemRemito = new ItemRemito(RemitoConverter.remitoToEntity(itemRemitoDTO.getRemito()), 
+				CargaConverter.cargaToEntity(itemRemitoDTO.getCarga()));
+		return itemRemito;
+	}
+	
+	public static List<ItemRemito> itemsRemitoToEntity(List<ItemRemitoDTO> itemsRemitoDTO){
+		List<ItemRemito> itemsRemito = new ArrayList<ItemRemito>();
+		for(ItemRemitoDTO i:itemsRemitoDTO){
+			itemsRemito.add(itemRemitoToEntity(i));
+		}
+		return itemsRemito;
+	}
+
 }

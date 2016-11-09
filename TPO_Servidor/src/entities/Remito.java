@@ -18,11 +18,8 @@ import javax.persistence.Table;
 @Table(name="Remito")
 public class Remito implements Serializable{
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 4948573134319975315L;
-	
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name="id", nullable = false)
@@ -42,6 +39,13 @@ public class Remito implements Serializable{
 	public Remito(Date fecha) {
 		super();
 		this.fecha = fecha;
+	}
+
+	public Remito(Date fecha, int id, List<ItemRemito> itemsRemito) { //NUEVO
+		super();
+		this.fecha = fecha;
+		this.id = id;
+		this.itemsRemito = itemsRemito; //Esto está bien?
 	}
 
 	public int getId() {

@@ -8,6 +8,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.classic.Session;
 
 import converters.CargaConverter;
+import dto.ClienteDTO;
 import dto.EnvioDTO;
 import entities.Carga;
 import entities.ItemRemito;
@@ -79,4 +80,27 @@ public class RemitoDAO {
 		
 		return remito;
 	}
+
+	public List<Remito> obtenerRemitosPorCliente(ClienteDTO cliente) {
+		System.out.println("obtenerRemitosPorCliente");
+		
+		Session session = sf.openSession();
+		session.beginTransaction();
+
+		//Creamos una colección de "Remitos"
+		@SuppressWarnings("unchecked")
+		List<Remito> remitos = (List<Remito>) session.createQuery
+				("FROM Envio e JOIN e.id c"
+				+ "JOIN c.id ir"
+				+ "JOIN ir.id_Remito r"
+				+ "WHERE e.id = :id")
+			.setParameter("id", cliente.getId())
+			.setFirstResult(0).setMaxResults(10)
+			.list();
+
+		session.close();
+		
+		return remitos;
+	}
+
 }
