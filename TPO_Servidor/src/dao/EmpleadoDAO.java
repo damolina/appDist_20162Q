@@ -61,4 +61,20 @@ public class EmpleadoDAO {
 		session.close();
 		return list;
 	}
+	
+	public boolean existeEmpleado(String cuit) {
+		boolean existeEmpleado 	= false;
+		List<Empleado> empleado	= null;
+		Session session = sf.openSession();
+		empleado = session.createQuery("SELECT 1 "
+						   			+ "FROM Empleado e "
+						   			+ "WHERE e.cuit = :cuit").setParameter("cuit",cuit).list();
+		session.close();
+
+		if(empleado.size() > 0){
+			existeEmpleado = true;
+		}
+		
+		return existeEmpleado;
+	}
 }

@@ -87,5 +87,11 @@ public class ABM extends UnicastRemoteObject implements IABM{
 	public List<EmpleadoDTO> getEmpleados() throws RemoteException, EmpleadoException {
 		return EmpleadoSRV.getEmpleados();
 	}
+	
+	@Override
+	public boolean existeEmpleado(String cuit) throws RemoteException, EmpleadoException {
+		// TODO Auto-generated method stub
+		return false;
+	}
 
 }

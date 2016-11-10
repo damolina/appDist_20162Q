@@ -31,4 +31,8 @@ public class EmpleadoSRV {
 		List<EmpleadoDTO> choferesDTO 	= EmpleadoConverter.empleadosToDTO(choferes);
 		return choferesDTO;
 	}
+	
+	public static boolean existeEmpleado(String cuit) {
+		return dao.existeEmpleado(cuit);
+	}
 }

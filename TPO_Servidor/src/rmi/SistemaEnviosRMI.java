@@ -186,6 +186,11 @@ public class SistemaEnviosRMI extends UnicastRemoteObject implements ISistemaEnv
 	public EmpleadoDTO crearEmpleado(EmpleadoDTO empleado) throws RemoteException, EmpleadoException {
 		return EmpleadoSRV.crearEmpleado(empleado);
 	}
+	
+	@Override
+	public boolean existeEmpleado(String cuit) throws RemoteException, EmpleadoException {
+		return EmpleadoSRV.existeEmpleado(cuit);
+	}
 
 
 
