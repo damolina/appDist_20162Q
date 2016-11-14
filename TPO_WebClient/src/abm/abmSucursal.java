@@ -8,14 +8,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-public class AbmSucursal extends HttpServlet {
+public class abmSucursal extends HttpServlet {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -7930123587008023709L;
 	
-	public AbmSucursal (){
+	public abmSucursal (){
 		super();
 	}
 	
